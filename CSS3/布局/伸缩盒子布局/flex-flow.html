@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 900px;
+            height: 300px;
+            border: 1px solid red;
+            box-sizing: border-box;
+            /* 设置父容器为盒子，会使每一个子元素自动变成伸缩项 */
+            display: flex;
+            /* 设置子元素的排列方式 */
+            justify-content: space-between;
+            flex-flow:wrap column;
+        }
+        .first{
+            width: 200px;
+            height: 100px;
+            background-color: pink;
+        }
+        .second{
+            width: 200px;
+            height: 100px;
+            background-color: skyblue;
+        }
+        .third{
+            width: 200px;
+            height: 100px;
+            background-color: lime;
+        }
+        .fourth{
+            width: 200px;
+            height: 100px;
+            background-color: plum;
+        }
+        .fifth{
+            width: 200px;
+            height: 100px;
+            background-color: rgb(250, 250, 143);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="first">1</div>
+        <div class="second">2</div>
+        <div class="third">3</div>
+        <div class="fourth">4</div>
+        <div class="fifth">5</div>
+    </div>
+</body>
+</html>

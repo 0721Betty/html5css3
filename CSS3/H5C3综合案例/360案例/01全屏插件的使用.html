@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="lib/jquery-1.12.1.js"></script>
+    <script src="lib/fullpage.js"></script>
+    <style>
+        h3,html,body {
+            margin: 0px;
+            padding: 0px;
+        }
+        .first.current h3{
+            color: #fff;
+        }
+        /* .second.current交集选择器 */
+        .second.current h3{
+            font-size: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="dowebok">
+        <!-- 每一个section就是一屏 ，默认显示第一屏-->
+        <div class="section first">
+            <h3>第一屏</h3>
+        </div>
+        <div class="section second">
+            <h3>第二屏</h3>
+        </div>
+        <div class="section">
+            <h3>第三屏</h3>
+        </div>
+        <div class="section">
+            <h3>第四屏</h3>
+        </div>
+        <div class="section">
+            <h3>第五屏</h3>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            $('#dowebok').fullpage({
+                // 设置每一屏的背景色
+                sectionsColor: ["red", "green", "blue", "pink", "skyBlue"],
+                // 当滚动到某一屏之后调用  anchorLink锚链接  index 当前屏的索引，索引从0开始
+                afterLoad: function (anchorLink,index) {
+                    //将其它屏的current标记移除 
+                    $(".section").removeClass("current");
+                    // alert(index.index);输出当前屏的索引
+                    // 添加样式，当滚动到某一屏之后，为元素添加样式--标记
+                    // 当滚到第二屏时，第二屏字体变大
+                    // 当滚到第一屏时，第一屏的字体颜色变为#fff
+                    $(".section").eq(index.index).addClass("current");
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

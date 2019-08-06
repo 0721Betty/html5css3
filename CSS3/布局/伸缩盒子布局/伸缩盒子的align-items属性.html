@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .box{
+            width: 900px;
+            height: 600px;
+            border: 1px solid red;
+            margin: 0 auto;
+            /* 设置父容器为伸缩盒子 */
+            display: flex;
+            /* 设置子元素的主轴方向上的排列方式 */
+            justify-content: space-around;
+            /* align-items:设置子元素（伸缩项）在侧轴方向上的对齐方式 */
+            /* center设置在侧轴方向上的居中对齐 */
+            /* flex-start设置在侧轴方向上的顶部对齐 */
+            /* flex-end设置在侧轴方向上的底部对齐 */
+            align-items: center;
+        }
+        .first{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            align-self: flex-start;
+        }
+        .second{
+            width: 200px;
+            height: 200px;
+            background-color: green;
+        }
+        .third{
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+   <div class="box">
+       <div class="first">1</div>
+       <div class="second">2</div>
+       <div class="third">3</div>
+   </div>
+</body>
+</html>

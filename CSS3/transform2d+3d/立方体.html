@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            margin: 100px auto;
+            position: relative;
+            /* 让box默认旋转，方便观察 */
+            transform: rotate3d(1,1,0,-30deg);
+            /* 让子元素保留3d变换之后的效果，这句话必须加上*/
+            transform-style: preserve-3d;
+            /* 添加景深透视效果 */
+            /* perspective: 0px; */
+            /* 设置透视的观察角度 */
+            /* perspective-origin: 0px 0px; */
+        }
+        .box >div{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            opacity: 0.5;
+        }
+        .front{
+            background-color: red;
+            /* 在Z轴正方向移动100px,即宽的一半 */
+            transform: translateZ(100px);
+        }
+        .back{
+            background-color: skyblue;
+            /* 在Z轴负方向移动100px,即宽的一半 */
+            transform: translateZ(-100px) rotateY(180deg);
+        }
+        .left{
+            background-color: pink;
+            /* 移动加旋转 */
+            transform: translateX(-100px) rotateY(-90deg);
+        }
+        .right{
+            background-color: rgb(235, 152, 235);
+            /* 移动加旋转 */
+            transform: translateX(100px) rotateY(90deg);
+        }
+        .top{
+            background-color: orange;
+            /* 移动加旋转 */
+            transform: translateY(-100px) rotateX(90deg);
+        }
+        .bottom{
+            background-color: rgb(234, 236, 108);
+            /* 移动加旋转 */
+            transform: translateY(100px) rotateX(-90deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="front">front</div>
+        <div class="back">back</div>
+        <div class="left">left</div>
+        <div class="right">right</div>
+        <div class="top">top</div>
+        <div class="bottom">bottom</div>
+    </div>
+</body>
+</html>

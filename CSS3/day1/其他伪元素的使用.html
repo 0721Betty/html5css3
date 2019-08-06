@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /*获取第一个字符，实现首字下沉效果 */
+        p::first-letter{
+            font-size: 30px;
+            color: red;
+            /* 文字环绕 */
+            float: left;
+            margin-right: 10px;
+        }
+        /* 获取第一行内容 ,如果设置了:::first-letter,无法再设置:::first-line的样式*/
+        p::first-line{
+           text-decoration: underline; 
+        }
+        /* 设置当前选中内容的样式 */
+        p::selection{
+            background-color: pink;
+            /* 只能设置显示的样式，而不能设置内容的大小 ,所以下面的语句无效*/
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <p>简单的事情，重复做，你就是专家。<br>简单的事情，重复做，你就是专家。</p>
+</body>
+</html>

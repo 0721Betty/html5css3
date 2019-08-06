@@ -1,0 +1,157 @@
+html,body,div,h3,p {
+    padding: 0px;
+    margin: 0px;
+}
+.section{
+    overflow: hidden;
+}
+/* 第一屏样式 */
+.first {
+    padding-top: 80px;
+}
+/* 插件默认为所有内容添加一个父容器，意味着logo并不是first的直接子元素 */
+.first .logo {
+    background: url("images/logo.png");
+    width: 128px;
+    height: 128px;
+    margin: 0px auto;
+}
+.first .text {
+    font-size: 80px;
+    color: #fff;
+    opacity: 0.2;
+    letter-spacing: 25px;
+    /* 添加过渡效果 */
+    transition: letter-spacing 1s,opacity 1s;
+    text-align: center;
+    margin-top: 80px;
+}
+.first .intro {
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 30px;
+}
+/* 页面滚动到第一屏时的效果 */
+.first.current .text{
+    letter-spacing: 10px;
+    opacity: 1;
+}
+
+/* 第三屏样式 */
+.third {
+    position: relative;
+}
+.third .info{
+    color: #fff;
+    position: absolute;
+    /* 定位的参照是参照父容器宽高 */
+    top: 50%;
+    left: 50%;
+    /* position先将该元素弄成与中心点对其，即中心点为其左上角，
+    再用transform对其定位，这样缩小浏览器的时候两个不会重叠在一起
+    保证两个div永远放在中心点的两边 */
+    transform: translate(-100%,-50%);
+    /* transform是相对元素的本身的宽高,用transform参照中心点做相应的位置偏移 */
+}
+.third .info .line1,.line2{
+    font-size: 50px;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+}
+.third .info .line3{
+    font-size: 18px;
+}
+.third .circle {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 6px dashed #fff;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(150%,-50%);
+}
+.third .circle > .rocket{
+    height: 128px;
+    width: 128px;
+    background: url("images/roket.png");
+    position: absolute;
+    left: -600px;
+    top: 650px;
+    /* 添加过渡 */
+    transition: top 1s,left 1s;
+}
+/* 添加第三屏的动画 */
+.third.current .circle > .rocket{
+    left: 80px;
+    top: 80px;
+}
+
+/* 第四屏样式 */
+.fourth {
+    position: relative;
+}
+.fourth .info{
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(0,-50%);
+}
+.fourth .info .line1,.line2{
+    font-size: 50px;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+}
+.fourth .info .line3{
+    font-size: 18px;
+}
+.fourth .search {
+    width: 376px;
+    height: 331px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-150%,-50%);
+    overflow: hidden;
+}
+.fourth .search > .searchBar {
+    width: 376px;
+    height: 66px;
+    background: url("images/input.png");
+    /* 开始的时候不可见，进行默认偏移 后面用过渡实现可见 */
+    transform: translateX(-100%);
+}
+.fourth .search > .searchText {
+    /* 开始时文本不可见，后面用过渡实现 */
+    width: 0px;
+    height: 60px;
+    background: url("images/text.png") no-repeat;
+    position: absolute;
+    top: 13px;
+    left: 13px;
+}
+.fourth .search > .searchResult{
+    width: 376px;
+    /* 搜索结果默认不可见 */
+    height: 0px;
+    background: url("images/result.png");
+}
+/* 当滚动到第四屏时的过渡效果 ，让搜索框，搜索文本，搜索结果依次可见*/
+.fourth.current .search > .searchBar{
+    transform: translateX(0);
+    /* 添加过渡样式 */
+    transition: transform 1s;
+}
+.fourth.current .search > .searchText{
+    width: 350px;
+    /* 添加过渡样式 过渡耗时1s 延迟1s 分5步*/
+    transition: width 1s 1s steps(5);
+}
+.fourth.current .search > .searchResult{
+    height: 265px;
+    /* 添加过渡样式 过渡耗时1s 延迟2s*/
+    transition: height 1s 2s;
+}

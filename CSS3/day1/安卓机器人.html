@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .content{
+            width: 300px;
+            height: 400px;
+            border: 1px solid red;
+            margin: 50px auto;
+        }
+        .an-header{
+            width: 140px;
+            height: 70px;
+            background-color: skyblue;
+            margin: 10px auto;
+            /* 添加圆角 */
+            border-radius: 70px 70px 0px 0px;
+            position: relative;
+        }
+        /* 使用伪元素添加眼睛，如果需要设置宽高需要为其转换为块级元素，通过float   display  position等即可将其转换为块级元素 */
+        .an-header::before{
+            content: "";
+            position: absolute;
+            top: 30px;
+            left: 35px;
+            background-color: #fff;
+            width: 10px;
+            height: 10px;
+            border-radius: 5px;
+        }
+        .an-header::after{
+            content: "";
+            position: absolute;
+            top: 30px;
+            right: 35px;
+            background-color: #fff;
+            width: 10px;
+            height: 10px;
+            border-radius: 5px;
+        }
+        .an-body{
+            width: 140px;
+            height: 160px;
+            background-color: skyblue;
+            margin: 5px auto;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            position: relative;
+        }
+        .an-body::before{
+            content: "";
+            position: absolute;
+            top: 15px;
+            left: -25px;
+            background-color: skyblue;
+            width: 15px;
+            height: 100px;
+            border-radius: 3px;
+        }
+        .an-body::after{
+            content: "";
+            position: absolute;
+            top: 15px;
+            right: -25px;
+            background-color: skyblue;
+            width: 15px;
+            height: 100px;
+            border-radius: 3px;
+        }
+        .an-footer{
+            position: relative;
+        }
+        .an-footer::before{
+            content: "";
+            position: absolute;
+            top: -5px;
+            left: 110px;
+            background-color: skyblue;
+            width: 15px;
+            height: 60px;
+            border-bottom-left-radius: 3px;
+            border-bottom-right-radius: 3px;
+        }
+        .an-footer::after{
+            content: "";
+            position: absolute;
+            top: -5px;
+            right: 110px;
+            background-color: skyblue;
+            width: 15px;
+            height: 60px;
+            border-bottom-left-radius: 3px;
+            border-bottom-right-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="an-header"></div>
+        <div class="an-body"></div>
+        <div class="an-footer"></div>
+    </div>
+</body>
+</html>

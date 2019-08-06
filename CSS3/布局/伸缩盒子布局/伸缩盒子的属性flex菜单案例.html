@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        div{
+            width: 500px;
+            height: 400px;
+            border: 1px solid #ccc;
+            margin: 50px auto;
+        }
+        div > ul {
+            list-style: none;
+            width: 100%;
+            /* 如果将父容器设置了伸缩盒子，子元素默认为伸缩项 */
+            display: flex;
+        }
+        div > ul > li {
+            flex: 1;
+            background-color: rgb(94, 175, 105);
+            height: 36px;
+            line-height: 36px;
+            border-right: 1px solid #ccc;
+            text-align: center;
+        }
+        /* 最后一个li没有右边框 */
+        li:nth-last-of-type(1){
+            border-right: none;
+        }
+    </style>
+</head>
+<body>
+    <div>
+       <ul>
+           <li>首页</li>
+           <li>商品分类</li>
+           <li>我的订单</li>
+           <li>最新商品</li>
+           <li>联系我们</li>
+       </ul>
+    </div>
+</body>
+</html>

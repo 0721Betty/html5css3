@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>360案例</title>
+    <link rel="stylesheet" href="360Page.css">
+    <script src="lib/jquery-1.12.1.js"></script>
+    <script src="lib/fullpage.js"></script>
+</head>
+<body>
+    <div id="360Page">
+        <div class="section first">
+            <div class="logo"></div>
+            <div class="text">4亿网友共同信赖</div>
+            <div class="intro">更安全，更爽快，更智能，更时尚</div>
+        </div>
+        <div class="section second">
+            <h3>第二屏</h3>
+        </div>
+        <div class="section third">
+            <div class="info">
+                <p class="line1">独创加速器，</p>
+                <p class="line2">随时加速<b>更爽快！</b></p>
+                <p class="line3">只需一键，内存降下来，缓存清理掉，速度快的可以飞起来！</p>
+            </div>
+            <div class="circle">
+                <div class="rocket"></div>
+            </div>
+        </div>
+        <div class="section fourth">
+            <div class="search">
+                <div class="searchBar"></div>
+                <div class="searchText"></div>
+                <div class="searchResult"></div>
+            </div>
+            <div class="info">
+                <p class="line1">聪明地址栏，</p>
+                <p class="line2">想你所想<b>更智能！</b></p>
+                <p class="line3">地址栏一键搜索电影、电视剧、小说、音乐、天气、快递，搜索快人一步！</p>
+            </div>
+        </div>
+        <div class="section fifth">
+            <h3>第五屏</h3>
+        </div>
+    </div>
+    <script>
+        $(function(){
+            $("#360Page").fullpage({
+                sectionsColor: ["#0da5d6","#2AB561","#DE8910","#16BA9D","#0DA5D6"],
+                afterLoad: function(anchorLink,index){
+                    // 先将其它屏的current标记移除
+                    $(".section").removeClass("current");
+                    // alert(index.index);//当前屏的索引，从0开始
+                    // 当滚动到某一屏之后，添加样式标记
+                    setTimeout(function(){
+                        $(".section").eq(index.index).addClass("current");
+                    },500);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

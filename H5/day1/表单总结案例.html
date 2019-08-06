@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>H5表单总结案例</title>
+    <style>
+        fieldset {
+            width: 400px;
+            margin: 20px auto;
+        }
+        form > fieldset meter,
+        form > fieldset input {
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            border: 1px solid #ccc;
+            margin: 10px 0;
+            padding-left: 5px;
+            /* width包含padding,border,内容，让左右两边留白一样宽 */
+            box-sizing: border-box;
+        }
+        form > fieldset meter{
+            padding-left: 0px;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <fieldset>
+            <legend>学生档案</legend>
+            <label for="userName">姓名：</label><br>
+            <input type="text" id="userName" name="userName" placeholder="请输入姓名"/>
+            <label for="phone">手机号码：</label>
+            <input type="tel" pattern="^1\d{10}$" id="phone" name="phone">
+            <label for="email">邮箱地址：</label>
+            <input type="email" id="email" name="email" required>
+            <label for="collage">所属学院：</label>
+            <input type="text" list="CList" id="collage" name="collage" placeholder="请选择">
+            <datalist id="CList">
+                <option value="前端与移动学院"></option>
+                <option value="C++学院"></option>
+                <option value="java学院"></option>
+            </datalist>
+            <label for="score">入学成绩：</label>
+            <input type="number" id="score" name="score" max="100" min="0" value="0">
+            <label for="level">基础水平：</label>
+            <meter id="level" name="level" min="0" max="100" low="59" high="90"></meter>
+            <label for="inTime">入学时间：</label>
+            <input type="date" id="inTime">
+            <label for="leaveTime">毕业时间：</label>
+            <input type="date" id="leaveTime">
+            <input type="submit">
+        </fieldset>
+    </form>
+    <script>
+        document.getElementById("score").oninput = function(){
+            document.getElementById("level").value = this.value;
+        }
+    </script>
+</body>
+
+</html>

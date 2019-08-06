@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: 'web';
+            font-display: swap;
+            src: url('fonts/webfont.eot');
+            /* IE9 */
+            src: url('fonts/webfont.eot?#iefix') format('embedded-opentype'),
+                /* IE6-IE8 */
+                url('fonts/webfont.woff2') format('woff2'),
+                url('fonts/webfont.woff') format('woff'),
+                /* chrome、firefox */
+                url('fonts/webfont.ttf') format('truetype'),
+                /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+                url('fonts/webfont.svg#webfont') format('svg');
+            /* iOS 4.1- */
+        }
+        .myfont {
+    font-family: "web" !important;
+    font-size: 30px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+    </style>
+</head>
+
+<body>
+    <!-- 1.得自定义想生成对应字体文件的内容 -->
+    <!-- 2.使用网络资源生成web字体，只有指定了的字会有该字体，其他字没有 -->
+    <!-- 3.1定义自定义字体 -->
+    <!-- 3.2定义样式使用自定义字体 -->
+    <!-- 3.3指定样式，调用样式，注意url中的路径是否正确！！！ -->
+    <p class="myfont">孔子曰：中午不睡，下午崩溃!孟子曰：孔子说的对!呵呵呵下午</p>
+</body>
+
+</html>

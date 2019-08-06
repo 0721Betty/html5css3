@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        div{
+            width: 756px;
+            height: 154px;
+            margin: 100px auto;
+            background-color: #ddd;
+            overflow: hidden;
+        }
+        div > ul {
+            width: 200%;
+            list-style: none;
+            /* 设置动画名称 */
+            animation-name: move;
+            /* 设置动画的耗时 */
+            animation-duration: 7s;
+            /* 设置无限循环*/
+            animation-iteration-count: infinite;
+            /* 设置时间函数 ,匀速滚动*/
+            animation-timing-function: linear;
+        }
+        div > ul >li {
+            width: 126px;
+            float: left;
+        }
+        div > ul > li > img{
+            width: 100%;
+        }
+        /* 鼠标上移，停止动画 */
+        div:hover > ul{
+            cursor: pointer;
+            animation-play-state: paused;
+        }
+
+        /* 创建动画 */
+        @keyframes move {
+            from{
+                transform: translateX(0);
+            }
+            to{
+                transform: translateX(-756px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <ul>
+            <li><img src="脸谱1.jpg" alt=""></li>
+            <li><img src="脸谱2.jpg" alt=""></li>
+            <li><img src="脸谱3.jpg" alt=""></li>
+            <li><img src="脸谱4.jpg" alt=""></li>
+            <li><img src="脸谱5.jpg" alt=""></li>
+            <li><img src="脸谱6.jpg" alt=""></li>
+            <li><img src="脸谱1.jpg" alt=""></li>
+            <li><img src="脸谱2.jpg" alt=""></li>
+            <li><img src="脸谱3.jpg" alt=""></li>
+            <li><img src="脸谱4.jpg" alt=""></li>
+            <li><img src="脸谱5.jpg" alt=""></li>
+            <li><img src="脸谱6.jpg" alt=""></li>
+        </ul>
+    </div>
+</body>
+</html>

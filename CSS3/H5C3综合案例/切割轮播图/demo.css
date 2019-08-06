@@ -1,0 +1,96 @@
+ul,li,div,span {
+    margin: 0px;
+    padding: 0px;
+}
+.view {
+    width: 750px;
+    height: 290px;
+    margin: 100px auto;
+    position: relative;
+}
+ul {
+    width: 100%;
+    height: 100%;
+    list-style: none;
+    transform: rotate3d(1,1,0,0deg);
+    transform-style: preserve-3d;
+}
+ul > li {
+    width: 20%;
+    height: 100%;
+    /* background-color: #ccc; */
+    float: left;
+    position: relative;
+    transform-style: preserve-3d;
+    /* 添加过渡效果 */
+    transition: transform 2s;
+}
+ul > li >span {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+/* 每个li的第1个span */
+ul > li > span:nth-of-type(1){
+    background: url("images/1.jpg");
+    /* 往Z轴正方向偏移div高的一半 */
+    transform: translateZ(145px);
+}
+/* 每个li的第2个span */
+ul > li > span:nth-of-type(2){
+    background: url("images/2.jpg");
+    /* 往Y轴负方向偏移div高的一半 */
+    transform: translateY(-145px) rotateX(90deg);
+}
+/* 每个li的第3个span */
+ul > li > span:nth-of-type(3){
+    background: url("images/3.jpg");
+    /* 往z轴负方向偏移div高的一半 */
+    transform: translateZ(-145px) rotateX(180deg);
+}
+/* 每个li的第一4span */
+ul > li > span:nth-of-type(4){
+    background: url("images/4.jpg");
+    /* 往Y轴正方向偏移div高的一半 */
+    transform: translateY(145px) rotateX(-90deg);
+}
+
+/* 设置每一个li元素的span所显示的图片的位置 */
+ul > li:nth-of-type(2) > span{
+    /* 向左让图片偏移li的宽度 */
+    background-position: -100% 0;
+}
+ul > li:nth-of-type(3) > span{
+    /* 偏移 */
+    background-position: -200% 0;
+}
+ul > li:nth-of-type(4) > span{
+    /* 偏移 */
+    background-position: -300% 0;
+}
+ul > li:nth-of-type(5) > span{
+    /* 偏移 */
+    background-position: -400% 0;
+}
+.pre,.next{
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    /* 设置了position会自动将a标签变为块级元素 */
+    position: absolute;
+    top: 50%;
+    text-decoration: none;
+    font-size: 40px;
+    transform: translate(0,-50%);
+    background-color: rgba(129, 128, 128, 0.5);
+    color: #fff;
+}
+.pre{
+    left: 0;
+}
+.next{
+    right: 0;
+}

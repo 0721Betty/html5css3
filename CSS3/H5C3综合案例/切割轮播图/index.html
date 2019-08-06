@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>切割轮播图</title>
+    <link rel="stylesheet" href="demo.css">
+</head>
+
+<body>
+    <!-- 本质上4张图片在长方体的四个面上，将该长方体分为5个结构块即5个小的长方体，四个面为4个span -->
+    <div class="view">
+        <ul>
+            <!-- 每个li是一个结构块 -->
+            <li>
+                <!-- 每一个span是这个结构块中的某一个面,用来显示图片 -->
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </li>
+            <li>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </li>
+            <li>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </li>
+            <li>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </li>
+            <li>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </li>
+        </ul>
+        <a href="javascript:;" class="pre">&lt;</a>
+        <a href="javascript:;" class="next">&gt;</a>
+    </div>
+    <script src="js/jquery-1.12.1.js"></script>
+    <script>
+        $(function () {
+            // 定义图片索引
+            var index = 0;
+            // 添加节流阀，只有当此次点击事件响应完毕后，才能执行下一次事件
+            // 如果flag是true的话，说明本次单击会有响应处理
+            var flag = true;
+            // 下一张
+            $(".next").on("click", function () {
+                if (flag == true) {
+                    // 设置节流阀
+                    flag = false;
+                    index--;
+                    // 所谓下一张，就是将所有的li元素围绕x轴旋转
+                    $("li").each(function (key, value) {
+                        // 通过添加transform样式进行旋转
+                        $(this).css({
+                            "transform": "rotateX(" + (index * 90) + "deg)",
+                            // 添加延迟，每个li的延迟时间不一样
+                            "transition-delay": (key * 0.1) + "s"
+                        });
+                    });
+                    setTimeout(() => {
+                        flag = true;
+                    }, 1000);
+                }
+            });
+            // 上一张
+            $(".pre").on("click", function () {
+                if (flag == true) {
+                    // 设置节流阀
+                    flag = false;
+                    index++;
+                    // 所谓下一张，就是将所有的li元素围绕x轴旋转
+                    $("li").each(function (key, value) {
+                        // 通过添加transform样式进行旋转
+                        $(this).css({
+                            "transform": "rotateX(" + (index * 90) + "deg)",
+                            // 添加延迟，每个li的延迟时间不一样
+                            "transition-delay": (key * 0.5) + "s"
+                        });
+                    });
+                    setTimeout(() => {
+                        flag = true;
+                    }, 1000);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
